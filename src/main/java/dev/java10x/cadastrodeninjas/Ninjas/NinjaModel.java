@@ -22,6 +22,7 @@ public class NinjaModel {
 
     private int idade;
 
+    @Column(unique = true) //Não permite valores repetidos nessa coluna do banco de dados
     private String email;
 
     @ManyToOne //Varios ninjas para uma missão
