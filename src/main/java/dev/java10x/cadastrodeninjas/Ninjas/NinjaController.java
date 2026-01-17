@@ -14,13 +14,8 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    @GetMapping("/boasvindas")
-    public String boasVindas(){
-        return "Essa é minha primeira mensagem nessa rota";
-    }
-
     //Adicionar Ninja (CREATE)
-    //@RequestBody
+    //@RequestBody converte o JSON enviado pelo usuário para um objeto JAVA
     @PostMapping("/criar")
     public NinjaModel adicionarNinja(@RequestBody NinjaModel ninja){
         return ninjaService.cadastrarNinja(ninja);
