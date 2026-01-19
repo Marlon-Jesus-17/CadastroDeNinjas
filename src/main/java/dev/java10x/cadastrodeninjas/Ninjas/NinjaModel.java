@@ -31,6 +31,9 @@ public class NinjaModel {
     @Column(name="img_url")
     private String imgUrl;
 
+    @Column(name="rank")
+    private String rank;
+
     @ManyToOne //Varios ninjas para uma missão
     @JoinColumn(name = "missoes_id") //foreing key ou chave estrangeira
     private MissoesModel missoes;
