@@ -8,9 +8,11 @@ import java.util.Optional;
 public class NinjaService {
 
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper;
 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    public NinjaService(NinjaRepository ninjaRepository, NinjaMapper ninjaMapper) {
         this.ninjaRepository = ninjaRepository;
+        this.ninjaMapper = ninjaMapper;
     }
 
     //Listar ninjas
@@ -25,8 +27,10 @@ public class NinjaService {
     }
 
     //Cadastrar ninjas
-    public NinjaModel cadastrarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
+    public NinjaDTO cadastrarNinja(NinjaDTO ninjaDTO){
+        NinjaModel ninja = NinjaMapper.map(ninjaDTO);
+        ninja = ninjaRepository.save(ninja);
+        return ninjaMapper.map(ninja);
     }
 
     //Deletar ninjas

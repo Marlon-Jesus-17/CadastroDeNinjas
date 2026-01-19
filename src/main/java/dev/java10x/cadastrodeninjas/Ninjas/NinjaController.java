@@ -17,7 +17,7 @@ public class NinjaController {
     //Adicionar Ninja (CREATE)
     //@RequestBody converte o JSON enviado pelo usuário para um objeto JAVA
     @PostMapping("/criar")
-    public NinjaModel adicionarNinja(@RequestBody NinjaModel ninja){
+    public NinjaDTO adicionarNinja(@RequestBody NinjaDTO ninja){
         return ninjaService.cadastrarNinja(ninja);
     }
 
