@@ -17,23 +17,23 @@ public class NinjaController {
     //Adicionar Ninja (CREATE)
     //@RequestBody converte o JSON enviado pelo usuário para um objeto JAVA
     @PostMapping("/criar")
-    public NinjaModel adicionarNinja(@RequestBody NinjaModel ninja){
+    public NinjaDTO adicionarNinja(@RequestBody NinjaDTO ninja){
         return ninjaService.cadastrarNinja(ninja);
     }
 
     //Mostrar Ninja por ID (READ)
     @GetMapping("listar/{id}")
-    public NinjaModel mostrarNinjaPorId(@PathVariable Long id){ return ninjaService.listarNinjasPorId(id); }
+    public NinjaDTO mostrarNinjaPorId(@PathVariable Long id){ return ninjaService.listarNinjasPorId(id); }
 
     //Mostrar os Ninjas (READ)
     @GetMapping("/listar")
-    public List<NinjaModel> listarNinjas(){
+    public List<NinjaDTO> listarNinjas(){
         return ninjaService.listarNinjas();
     }
 
     //Mudar os dados do Ninja (UPDATE)
     @PutMapping("/alterar/{id}")
-    public NinjaModel atualizarNinja(@PathVariable Long id, @RequestBody NinjaModel ninjaAtualizado){
+    public NinjaDTO atualizarNinja(@PathVariable Long id, @RequestBody NinjaDTO ninjaAtualizado){
         return ninjaService.atualizarNinja(id, ninjaAtualizado);
     }
 
